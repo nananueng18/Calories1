@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">แอพพลิเคชั่นบันทึกปริมาณแคลอรี่</string>
+    <string name="unsaved_exit_alert">คุณยังไม่ได้บันทึกข้อมูล คุณแน่ใจหรือไม่ว่าต้องการออกจากหน้านี้?</string>
+    <string name="are_you_sure">คุณแน่ใจหรือไม่?</string>
+    <string name="delete">ลบข้อมูล</string>
+    <string name="edit">แก้ไข</string>
+    <string name="no_task">ไม่ได้ทำการบันทึกรายการอาหาร</string>
+    <string name="save">บันทึก</string>
+    <string name="task">บันทึกรายการอาหาร</string>
+    <string name="tasks">รายการอาหารที่รับประทาน</string>
+    <string name="title_is_required">ต้องใส่หัวข้อด้วย</string>
+    <string name="Calorie">แคลอรี่</string>
+    <string name="Food">ชื่ออาหาร</string>
+    <string name="record_calorie">บันทึกปริมาณแคลอรี่</string>
+    <string name="edit_work">แก้ไขรายการอาหาร</string>
+    <string name="new_work">สร้างรายการอาหารใหม่</string>
+    <string name="work_content">กิโลแคลอรี่</string>
+    <string name="work_title">ชื่ออาหาร</string>
+    <string name="work_date">วันที่</string>
+</resources>

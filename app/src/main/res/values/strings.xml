@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">CALORIE</string>
+    <string name="task">Record Food Menu</string>
+    <string name="save">Save</string>
+    <string name="no_task">No Record Food Menu</string>
+    <string name="unsaved_exit_alert">You have unsaved data. Are you sure you want to exit?</string>
+    <string name="title_is_required">Task title is required.</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="tasks">Food Menu</string>
+    <string name="Calorie">Calorie</string>
+    <string name="Food">Food</string>
+    <string name="record_calorie">Record Calorie</string>
+    <string name="work">Work</string>
+    <string name="title">work</string>
+    <string name="work_title">Food name</string>
+    <string name="work_content">Kilocalorie</string>
+    <string name="new_work">New Food Menu</string>
+    <string name="edit_work">edit work</string>
+    <string name="work_date">date</string>
+</resources>
