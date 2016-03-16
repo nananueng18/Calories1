@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="mainueng.calorie.calories1.recordcalActivity">
+    tools:context="mainueng.calorie.calories1.RecordcalActivity">
 
     <include android:id="@+id/toolbar_main" layout="@layout/toolbar_main" />
 
@@ -101,4 +101,5 @@
         </android.support.design.widget.TextInputLayout>
 
     </LinearLayout>
+
 </RelativeLayout>

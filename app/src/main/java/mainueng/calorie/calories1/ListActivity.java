@@ -17,7 +17,11 @@ import android.widget.TextView;
 
 import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic;
 
+import java.security.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class ListActivity extends BaseActivity {
@@ -27,8 +31,15 @@ public class ListActivity extends BaseActivity {
 
     private ArrayList<Work> work;
 
+
     private ListView listView;
     private TextView emptyLabel;
+
+   // public String getBackupFolderName() {
+       // Date date = Calendar.getInstance().getTime();
+       // SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd.hhmmss");
+       // return sdf.format(date);
+   // }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,10 +112,14 @@ class WorkAdapter extends ArrayAdapter<Work> {
     public View getView(int position, View convertView, ViewGroup parent) {
         Work task = getItem(position);
         if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+            convertView = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_2, parent, false);
         }
         TextView tv = (TextView) convertView.findViewById(android.R.id.text1);
         tv.setText(task.title);
+        TextView t = (TextView) convertView.findViewById(android.R.id.text2);
+        t.setText(task.content);
         return convertView;
     }
+
+
 }

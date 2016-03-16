@@ -18,4 +18,9 @@
     <string name="work_content">กิโลแคลอรี่</string>
     <string name="work_title">ชื่ออาหาร</string>
     <string name="work_date">วันที่</string>
+    <string name="work">รายการอาหาร</string>
+    <string name="breakfast">อาหารเช้า</string>
+    <string name="lunch">อาหารเที่ยง</string>
+    <string name="dinner">อาหารเย็น</string>
+    <string name="total_calorie">รวมแคลอรี่</string>
 </resources>

@@ -24,7 +24,7 @@ public class RecordcalActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recordcalform);
+        setContentView(R.layout.activity_record_breakfast);
         setDrawer(true);
 
         titleEdit = (EditText) findViewById(R.id.titleEdit);

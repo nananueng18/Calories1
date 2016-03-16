@@ -8,6 +8,6 @@ public class RecordBreakfast extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_record_breakfast);
+        setContentView(R.layout.activity_recordcalform);
     }
 }

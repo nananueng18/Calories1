@@ -37,7 +37,9 @@ public abstract class BaseActivity extends AppCompatActivity {
             if (upEnabled) {
                 supportActionBar.setDisplayHomeAsUpEnabled(true);
             } else {
-                final Intent intent = new Intent(this, RecordcalActivity.class);
+                final Intent intent1 = new Intent(this,CaloriePerDay.class);
+                final Intent intent = new Intent(this, RecordBreakfast.class);
+                final Intent intent2 = new Intent(this,ListActivity.class);
                 new DrawerBuilder()
                         .withActivity(this)
                         .withToolbar(toolbar_main)
@@ -46,8 +48,17 @@ public abstract class BaseActivity extends AppCompatActivity {
                                         .withName(R.string.new_work)
                                         .withIcon(MaterialDesignIconic.Icon.gmi_plus)
                                         .withSelectable(false)
-                                        .withIdentifier(1)
+                                        .withIdentifier(3)
                         ).withSelectedItem(-1)
+
+                        /*.addDrawerItems(
+                                new PrimaryDrawerItem()
+                                        .withName(R.string.)
+                                        .withIcon(MaterialDesignIconic.Icon.gmi_plus)
+                                        .withSelectable(false)
+                                        .withIdentifier(3)
+                        ).withSelectedItem(-1)*/
+
                         .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                             @Override
                             public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
@@ -62,6 +73,9 @@ public abstract class BaseActivity extends AppCompatActivity {
                         .build();
             }
     }
+
+   // Timestamp var = new Timestamp(System.currentTimeMillis());
+   // String var = new SimpleDateFormat("dd/MM/yyyy").format(timestamp.getTime());
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

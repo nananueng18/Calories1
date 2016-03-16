@@ -48,8 +48,8 @@
         android:id="@+id/textView4"
         android:textIsSelectable="false"
         android:textSize="@dimen/materialize_typography_title"
-        android:layout_below="@+id/contentView"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/contentView" />
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -73,9 +73,7 @@
         android:id="@+id/contentView"
         android:textSize="@dimen/materialize_typography_title"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4"
-        android:layout_alignRight="@+id/textView4"
-        android:layout_alignEnd="@+id/textView4" />
+        android:layout_toEndOf="@+id/titleView"
+        android:layout_alignStart="@+id/titleView" />
 
 </RelativeLayout>
