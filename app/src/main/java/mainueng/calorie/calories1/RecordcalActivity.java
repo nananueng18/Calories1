@@ -19,7 +19,7 @@ public class RecordcalActivity extends BaseActivity {
     private Work work = null;
     private EditText titleEdit;
     private EditText contentEdit;
-    private EditText dateEdit;
+    //private EditText dateEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class RecordcalActivity extends BaseActivity {
 
         titleEdit = (EditText) findViewById(R.id.titleEdit);
         contentEdit = (EditText) findViewById(R.id.contentEdit);
-        dateEdit = (EditText) findViewById(R.id.dateEdit);
+        //dateEdit = (EditText) findViewById(R.id.dateEdit);
 
         long id = getIntent().getLongExtra("id", 0);
         if (id == 0) {
@@ -40,12 +40,13 @@ public class RecordcalActivity extends BaseActivity {
             if (work != null) {
                 titleEdit.setText(work.title);
                 contentEdit.setText(work.content);
-                dateEdit.setText(work.date);
+                //dateEdit.setText(work.date);
             } else {
                 finish();
             }
         }
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -91,9 +92,9 @@ public class RecordcalActivity extends BaseActivity {
 
     private boolean isEdited() {
         if (work == null)
-            return titleEdit.getText().length() > 0 || contentEdit.getText().length() > 0 || dateEdit.getText().length() > 0;
+            return titleEdit.getText().length() > 0 || contentEdit.getText().length() > 0 ;
         else
-            return !work.title.equals(titleEdit.getText().toString()) || !work.content.equals(contentEdit.getText().toString())|| !work.date.equals(dateEdit.getText().toString());
+            return !work.title.equals(titleEdit.getText().toString()) || !work.content.equals(contentEdit.getText().toString());
     }
 
     private void save() {
@@ -102,7 +103,7 @@ public class RecordcalActivity extends BaseActivity {
                 work = new Work();
             work.title = titleEdit.getText().toString();
             work.content = contentEdit.getText().toString();
-            work.date = dateEdit.getText().toString();
+           // work.date = dateEdit.getText().toString();
             work.saveWithTimestamp();
             setResult(Activity.RESULT_OK, new Intent().putExtra("id", work.getId()));
             this.finish();

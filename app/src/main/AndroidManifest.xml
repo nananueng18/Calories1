@@ -9,15 +9,23 @@
         android:label="Calories1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ListActivity">
+        <activity android:name=".SplashScreen" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+
+        </activity><activity android:name=".ListActivity"/>
         <activity android:name=".RecordcalActivity" />
         <activity android:name=".ShowActivity" />
+        <activity android:name=".EatActivity"/>
+        <activity android:name=".MainActivity">
+
+        </activity>
+
+        <activity android:name=".FoodSearch" />
 
         <meta-data
             android:name="AA_DB_NAME"
@@ -27,11 +35,10 @@
             android:value="1" />
         <meta-data
             android:name="AA_MODELS"
-            android:value="mainueng.calorie.calories1.Work" />
+            android:value="mainueng.calorie.calories1.Work,mainueng.calorie.calories1.Eat, mainueng.calorie.calories1.EatMeal" />
 
-        <activity android:name=".RecordBreakfast" />
-        <activity android:name=".SplashScreen" />
-        <activity android:name=".CaloriePerDay"></activity>
+
+        <activity android:name=".HistoryActivity"></activity>
     </application>
 
 </manifest>

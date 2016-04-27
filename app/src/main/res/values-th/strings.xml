@@ -15,7 +15,7 @@
     <string name="record_calorie">บันทึกปริมาณแคลอรี่</string>
     <string name="edit_work">แก้ไขรายการอาหาร</string>
     <string name="new_work">สร้างรายการอาหารใหม่</string>
-    <string name="work_content">กิโลแคลอรี่</string>
+    <string name="work_content">จำนวนแคลอรี่</string>
     <string name="work_title">ชื่ออาหาร</string>
     <string name="work_date">วันที่</string>
     <string name="work">รายการอาหาร</string>
@@ -23,4 +23,16 @@
     <string name="lunch">อาหารเที่ยง</string>
     <string name="dinner">อาหารเย็น</string>
     <string name="total_calorie">รวมแคลอรี่</string>
+	<string name="eat_atdate">วันที่บันทึก</string>
+    <string name="eat_breakfast">อาหารเช้า</string>
+    <string name="eat_lunch">อาหารเที่ยง</string>
+    <string name="eat_dinner">อาหารเย็น</string>
+	 <string name="new_eat">บันทึกรายการอาหาร</string>
+    <string name="kcal">กิโลแคลอรี่</string>
+    <string name="about_app"></string>
+    <string name="home">หน้าแรก</string>
+    <string name="today">บันทึกรายการอาหารวันนี้</string>
+    <string name="history">ประวัติการรับประทานอาหาร</string>
+    <string name="about">เกี่ยวกับแอพพลิเคชั่น</string>
+    <string name="foodsearch">ค้นหารายการอาหาร</string>
 </resources>

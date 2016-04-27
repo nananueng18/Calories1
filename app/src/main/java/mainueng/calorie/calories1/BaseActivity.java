@@ -20,8 +20,11 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 public abstract class BaseActivity extends AppCompatActivity {
-
-    protected static final int NEW_WORK = 1;
+    protected static final int NEW_List = 1; //New3
+    protected static final int HISTORY = 3;
+    protected static final int NEW_Eat1 = 2; //New2
+    protected static final int NEW_WORK = 4;
+    protected static final int About = 5;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,34 +40,77 @@ public abstract class BaseActivity extends AppCompatActivity {
             if (upEnabled) {
                 supportActionBar.setDisplayHomeAsUpEnabled(true);
             } else {
-                final Intent intent1 = new Intent(this,CaloriePerDay.class);
-                final Intent intent = new Intent(this, RecordBreakfast.class);
-                final Intent intent2 = new Intent(this,ListActivity.class);
+               /* final Intent intent1 = new Intent(this,EatActivity.class);
+                final Intent intent = new Intent(this, RecordcalActivity.class);
+                final Intent intent2 = new Intent(this,ListActivity.class);*/
                 new DrawerBuilder()
                         .withActivity(this)
                         .withToolbar(toolbar_main)
                         .addDrawerItems(
                                 new PrimaryDrawerItem()
+                                        .withName(R.string.home)
+                                        .withIcon(MaterialDesignIconic.Icon.gmi_home)
+                                        .withSelectable(false)
+                                        .withIdentifier(1)
+                        //).withSelectedItem(-1)
+
+                        ).addDrawerItems(
+                                new PrimaryDrawerItem()
                                         .withName(R.string.new_work)
                                         .withIcon(MaterialDesignIconic.Icon.gmi_plus)
                                         .withSelectable(false)
-                                        .withIdentifier(3)
+                                        .withIdentifier(4)
+
                         ).withSelectedItem(-1)
 
-                        /*.addDrawerItems(
+                        .addDrawerItems(
                                 new PrimaryDrawerItem()
-                                        .withName(R.string.)
-                                        .withIcon(MaterialDesignIconic.Icon.gmi_plus)
+                                        .withName(R.string.today)
+                                        .withIcon(MaterialDesignIconic.Icon.gmi_calendar_note)
+                                        .withSelectable(false)
+                                        .withIdentifier(2)
+                        ).withSelectedItem(-1)
+
+                        .addDrawerItems(
+                                new PrimaryDrawerItem()
+                                        .withName(R.string.history)
+                                        .withIcon(MaterialDesignIconic.Icon.gmi_calendar)
                                         .withSelectable(false)
                                         .withIdentifier(3)
-                        ).withSelectedItem(-1)*/
+                        ).withSelectedItem(-1)
+                        .addDrawerItems(
+                                new PrimaryDrawerItem()
+                                        .withName(R.string.about)
+                                        .withIcon(MaterialDesignIconic.Icon.gmi_android)
+                                        .withSelectable(false)
+                                        .withIdentifier(5)
+                        ).withSelectedItem(-1)
 
                         .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                             @Override
                             public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                            /*@Override
+                            public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {*/
                                 switch (drawerItem.getIdentifier()) {
                                     case 1:
-                                        startActivityForResult(intent, NEW_WORK);
+                                        Intent intent = new Intent(BaseActivity.this,ListActivity.class);
+                                        startActivityForResult(intent,NEW_List);
+                                        break;
+                                    case 4:
+                                        Intent intent1 = new Intent(BaseActivity.this,RecordcalActivity.class);
+                                        startActivityForResult(intent1, HISTORY);
+                                        break;
+                                    case 2:
+                                        Intent intent2 = new Intent(BaseActivity.this,EatActivity.class);
+                                        startActivityForResult(intent2, NEW_Eat1);
+                                        break;
+                                    case 3:
+                                        Intent intent3 = new Intent(BaseActivity.this,HistoryActivity.class);
+                                        startActivityForResult(intent3, NEW_WORK);
+                                        break;
+                                    case 5:
+                                        Intent intent4 = new Intent(BaseActivity.this,MainActivity.class);
+                                        startActivityForResult(intent4, About);
                                         break;
                                 }
                                 return false;
@@ -74,8 +120,6 @@ public abstract class BaseActivity extends AppCompatActivity {
             }
     }
 
-   // Timestamp var = new Timestamp(System.currentTimeMillis());
-   // String var = new SimpleDateFormat("dd/MM/yyyy").format(timestamp.getTime());
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

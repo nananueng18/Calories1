@@ -7,50 +7,62 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.mikepenz.material_design_iconic_typeface_library.MaterialDesignIconic;
 
+import java.util.ArrayList;
+
 public class ShowActivity extends BaseActivity {
 
-    private Work     work = null;
-    private TextView titleView;
-    private TextView contentView;
+    private Eat eat = null;
     private TextView dateView;
+    private TextView totalcalView;
+    //private TextView dateView;
 
 
-    private static final int MenuItem_EditID = 1;
+   /* private static final int MenuItem_EditID = 1;
     private static final int MenuItem_DeleteID = 2;
-    private static final int EDIT_work = 10;
+    private static final int EDIT_work = 10;*/
 
-    @Override
+   /* @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show);
         setDrawer(true);
         setTitle(R.string.work);
 
-        titleView = (TextView) findViewById(R.id.titleView);
-        contentView = (TextView) findViewById(R.id.contentView);
-        dateView = (TextView) findViewById(R.id.dateView);
+        dateView = (TextView) findViewById(R.id.FoodNameView);
+        totalcalView = (TextView) findViewById(R.id.CalorieView);
+        //dateView = (TextView) findViewById(R.id.dateView);
 
         long id = getIntent().getLongExtra("id", 0);
         setView(id);
     }
 
-    private void setView(long id) {
-        if (id > 0)
-            work = Work.load(Work.class, id);
-        if (work != null) {
-            titleView.setText(work.title);
-            contentView.setText(work.content);
-            dateView.setText(work.date);
+    /*private void setView() {
+        eat = new ArrayList<Eat>(Eat.getAll());
+        if (eat.isEmpty()) {
+            dateView.setVisibility(View.GONE);
+            totalcalView.setVisibility(View.VISIBLE);
         } else {
-            finish();
+            emptyLabel.setVisibility(View.GONE);
+            listView.setVisibility(View.VISIBLE);
+            listView.setAdapter(new WorkAdapter(this,eat));
+            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(ListActivity.this, ShowActivity.class);
+                    intent.putExtra("id", eat.get(position).getId());
+                    startActivityForResult(intent, SHOW_Eat);
+                }
+            });
         }
     }
 
-    @Override
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         addMenuItem(menu, MenuItem_EditID, R.string.edit, buildDrawable(MaterialDesignIconic.Icon.gmi_edit));
         addMenuItem(menu, MenuItem_DeleteID, R.string.delete, buildDrawable(MaterialDesignIconic.Icon.gmi_delete));
@@ -101,5 +113,5 @@ public class ShowActivity extends BaseActivity {
                     break;
             }
         }
-    }
+    }*/
 }

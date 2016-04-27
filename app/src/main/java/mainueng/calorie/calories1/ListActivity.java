@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -24,22 +25,27 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import static mainueng.calorie.calories1.R.id.Calorie;
+
 public class ListActivity extends BaseActivity {
 
-    private static final int NEW_WORK = 1;
-    private static final int SHOW_WORK = 2;
+    //private static final int NEW_WORK = 1;
+    //private static final int SHOW_WORK = 2;
+    private static final int NEW_Eat = 1;
+    private static final int SHOW_Eat = 2;
+    private ArrayList<Eat> eat;
 
-    private ArrayList<Work> work;
+    // private ArrayList<Work> work;
 
 
     private ListView listView;
     private TextView emptyLabel;
 
-   // public String getBackupFolderName() {
-       // Date date = Calendar.getInstance().getTime();
-       // SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd.hhmmss");
-       // return sdf.format(date);
-   // }
+    // public String getBackupFolderName() {
+    // Date date = Calendar.getInstance().getTime();
+    // SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd.hhmmss");
+    // return sdf.format(date);
+    // }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +62,8 @@ public class ListActivity extends BaseActivity {
         newFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ListActivity.this, RecordcalActivity.class);
-                startActivityForResult(intent, NEW_WORK);
+                Intent intent = new Intent(ListActivity.this, EatActivity.class);
+                startActivityForResult(intent, NEW_Eat1);
             }
         });
 
@@ -69,11 +75,11 @@ public class ListActivity extends BaseActivity {
         if (resultCode == Activity.RESULT_OK) {
             Bundle extras = data.getExtras();
             switch (requestCode) {
-                case NEW_WORK:
+                case NEW_Eat:
                     if (extras != null && extras.getLong("id", 0) > 0)
                         setView();
                     break;
-                case SHOW_WORK:
+                case SHOW_Eat:
                     if (extras != null && extras.getBoolean("refreshNeeded", false))
                         setView();
                     break;
@@ -82,44 +88,84 @@ public class ListActivity extends BaseActivity {
     }
 
     private void setView() {
-        work = new ArrayList<Work>(Work.getAll());
-        if (work.isEmpty()) {
+        eat = new ArrayList<Eat>(Eat.getAll());
+        if (eat.isEmpty()) {
             listView.setVisibility(View.GONE);
             emptyLabel.setVisibility(View.VISIBLE);
         } else {
             emptyLabel.setVisibility(View.GONE);
             listView.setVisibility(View.VISIBLE);
-            listView.setAdapter(new WorkAdapter(this, work));
+            listView.setAdapter(new WorkAdapter(this,eat));
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent intent = new Intent(ListActivity.this, ShowActivity.class);
-                    intent.putExtra("id", work.get(position).getId());
-                    startActivityForResult(intent, SHOW_WORK);
+                   // Intent intent = new Intent(ListActivity.this, EatActivity.class);
+                  //  intent.putExtra("id", eat.get(position).getId());
+                    //startActivityForResult(intent, SHOW_Eat);
                 }
             });
         }
     }
 }
 
-class WorkAdapter extends ArrayAdapter<Work> {
+class WorkAdapter extends ArrayAdapter<Eat> {
 
-    public WorkAdapter(Context context, ArrayList<Work> tasks) {
+    public WorkAdapter(Context context, ArrayList<Eat> tasks) {
         super(context, 0, tasks);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Work task = getItem(position);
+        ViewHolder holder;
+
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_2, parent, false);
+
+            holder = new ViewHolder();
+            holder.text1 = (TextView) convertView.findViewById(android.R.id.text1);
+            holder.text2 = (TextView) convertView.findViewById(android.R.id.text2);
+            //holder.text3 = (TextView) convertView.findViewById(R.id.Calorie);
+
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
         }
-        TextView tv = (TextView) convertView.findViewById(android.R.id.text1);
-        tv.setText(task.title);
-        TextView t = (TextView) convertView.findViewById(android.R.id.text2);
-        t.setText(task.content);
+
+        Eat Eat = getItem(position);
+        holder.text1.setText(Eat.atdate);
+        holder.text2.setText(Eat.totalkilo.toString());
+       // holder.text3.setText(R.string.Calorie);
+
+//        TextView tv = (TextView) convertView.findViewById(android.R.id.text1);
+//        tv.setText(Eat.atdate);
+//        TextView t = (TextView) convertView.findViewById(android.R.id.text2);
+//        t.setText(Eat.totalkilo.toString());
+
+        if (convertView == null) {
+            convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_item, parent, false);
+
+            holder = new ViewHolder();
+            holder.text3 = (TextView) convertView.findViewById(R.id.Calorie);
+            convertView.setTag(holder);
+        } else {
+            //holder = (ViewHolder) convertView.getTag();
+        }
+
+//        TextView tv = (TextView) convertView.findViewById(R.id.tvFood);
+//        tv.setTextColor(Color.BLACK);
+//        tv.setText(food.food);
+//        TextView t = (TextView) convertView.findViewById(R.id.tvKilo);
+//        t.setTextColor(Color.BLACK);
+//        t.setText(String.valueOf(food.kilocal));
         return convertView;
     }
 
+    class ViewHolder {
+        TextView text1;
+        TextView text2;
+        TextView text3;
+        //Button btRemove;
+    }
 
 }
+

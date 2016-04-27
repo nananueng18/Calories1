@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">CALORIE</string>
     <string name="task">Record Food Menu</string>
     <string name="save">Save</string>
     <string name="no_task">No Record Food Menu</string>
@@ -13,7 +12,6 @@
     <string name="Food">Food</string>
     <string name="record_calorie">Record Calorie</string>
     <string name="work">Work</string>
-    <string name="title">work</string>
     <string name="work_title">Food name</string>
     <string name="work_content">Kilocalorie</string>
     <string name="new_work">New Food Menu</string>
@@ -23,4 +21,18 @@
     <string name="lunch">Lunch</string>
     <string name="dinner">Dinner</string>
     <string name="total_calorie">Total calorie</string>
+    <string name="eat_atdate">Date</string>
+    <string name="eat_breakfast">Breakfast</string>
+    <string name="eat_dinner">Dinner</string>
+    <string name="eat_lunch">Lunch</string>
+    <string name="new_eat">New Food</string>
+    <string name="about_app">"Calorie app"</string>
+    <string name="about_app2">เป็นแอพพลิเคชั่นที่ใช้สำหรับการวางแผนการรับประทานอาหารในแต่ละมื้อของแต่ละวัน</string>
+    <string name="kcal">Kilo calorie</string>
+    <string name="app_name">Calorie Application</string>
+    <string name="home">HOME</string>
+    <string name="today">TODAY</string>
+    <string name="history">HISTORY</string>
+    <string name="about">ABOUT</string>
+    <string name="foodsearch">FoodSearch</string>
 </resources>

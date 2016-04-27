@@ -5,11 +5,12 @@ import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 @Table(name = "Work")
-public class Work extends Model {
+public class Work extends Model implements Serializable {
 
     @Column(name = "title")
     public String title;
@@ -32,12 +33,18 @@ public class Work extends Model {
     public static List<Work> getAll() {
         return new Select().from(Work.class).orderBy("updatedAt DESC").execute();
     }
-
+    public static List<Work> getbyfoodname(String foodname){
+        return new Select().from(Work.class).where("title like '%" + foodname + "%'").execute();
+    }
     public void saveWithTimestamp() {
         Date now = new Date();
         updatedAt = now;
         if (createdAt == null)
             createdAt = now;
         save();
+    }
+    @Override
+    public String toString() {
+        return this.title;
     }
 }
