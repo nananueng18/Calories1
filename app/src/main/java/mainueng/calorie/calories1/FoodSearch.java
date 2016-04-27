@@ -29,7 +29,7 @@ public class FoodSearch extends BaseActivity {
 
     private ListView listView;
     private Button bt_foodsearch;
-//    private TextView emptyLabel;
+    //    private TextView emptyLabel;
     private EditText et_foodsearch;
 
     @Override
@@ -43,7 +43,7 @@ public class FoodSearch extends BaseActivity {
         listView = (ListView) findViewById(R.id.listView);
 //        emptyLabel = (TextView) findViewById(R.id.emptyLabel);
         et_foodsearch = (EditText) findViewById(R.id.et_foodsearch);
-        bt_foodsearch = (Button)findViewById(R.id.bt_foodsearch);
+        bt_foodsearch = (Button) findViewById(R.id.bt_foodsearch);
 
 
         bt_foodsearch.setOnClickListener(new View.OnClickListener() {
@@ -58,11 +58,15 @@ public class FoodSearch extends BaseActivity {
     private void setView() {
         work = new ArrayList<Work>(Work.getbyfoodname(et_foodsearch.getText().toString()));
         //Toast.makeText(FoodSearch.this, String.valueOf(work.size()), Toast.LENGTH_LONG).show();
-//        if (work.isEmpty()) {
+        if (work.isEmpty()) {
 //            listView.setVisibility(View.GONE);
 //            et_foodsearch.setVisibility(View.GONE);
 //            emptyLabel.setVisibility(View.VISIBLE);
-//        } else {
+            Intent intent = new Intent(this, RecordcalActivity.class);
+            intent.putExtra("Add New Food Menu", "");
+            startActivityForResult(intent, NEW_WORK);
+
+        } else {
 //            emptyLabel.setVisibility(View.GONE);
             et_foodsearch.setVisibility(View.VISIBLE);
             listView.setVisibility(View.VISIBLE);
@@ -73,44 +77,46 @@ public class FoodSearch extends BaseActivity {
                     Intent intent = new Intent();
                     intent.putExtra("food", work.get(position));
                     setResult(Activity.RESULT_OK, intent);
-                    //Toast.makeText(context, "show", Toast.LENGTH_LONG).show();
+
+
                     finish();
                 }
             });
 //        }
-    }
-}
-
-class foodAdapter extends ArrayAdapter<Work> {
-
-    public foodAdapter(Context context, ArrayList<Work> tasks) {
-        super(context, 0, tasks);
+        }
     }
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
+    static class foodAdapter extends ArrayAdapter<Work> {
 
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
-            holder = new ViewHolder();
-            holder.text1 = (TextView) convertView.findViewById(android.R.id.text1);
-
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
+        public foodAdapter(Context context, ArrayList<Work> tasks) {
+            super(context, 0, tasks);
         }
 
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder holder;
 
-        Work task = getItem(position);
-        holder.text1.setText(task.title);
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(android.R.layout.simple_list_item_1, parent, false);
+                holder = new ViewHolder();
+                holder.text1 = (TextView) convertView.findViewById(android.R.id.text1);
+
+                convertView.setTag(holder);
+            } else {
+                holder = (ViewHolder) convertView.getTag();
+            }
+
+
+            Work task = getItem(position);
+            holder.text1.setText(task.title);
 
 //        TextView tv = (TextView) convertView.findViewById(android.R.id.text1);
 //        tv.setText(task.title);
-        return convertView;
-    }
+            return convertView;
+        }
 
-    static class ViewHolder {
-        TextView text1;
+        static class ViewHolder {
+            TextView text1;
+        }
     }
 }
