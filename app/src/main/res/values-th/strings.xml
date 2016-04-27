@@ -35,4 +35,5 @@
     <string name="history">ประวัติการรับประทานอาหาร</string>
     <string name="about">เกี่ยวกับแอพพลิเคชั่น</string>
     <string name="foodsearch">ค้นหารายการอาหาร</string>
+    <string name="not_found">ไม่พบรายการอาหารที่ต้องการ</string>
 </resources>

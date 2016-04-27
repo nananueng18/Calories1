@@ -35,4 +35,5 @@
     <string name="history">HISTORY</string>
     <string name="about">ABOUT</string>
     <string name="foodsearch">FoodSearch</string>
+    <string name="not_found">Not found</string>
 </resources>

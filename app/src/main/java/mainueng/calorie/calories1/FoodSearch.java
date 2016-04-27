@@ -62,9 +62,11 @@ public class FoodSearch extends BaseActivity {
 //            listView.setVisibility(View.GONE);
 //            et_foodsearch.setVisibility(View.GONE);
 //            emptyLabel.setVisibility(View.VISIBLE);
+            Toast.makeText(this, "ไม่พบรายการอาหารที่ต้องการ", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, RecordcalActivity.class);
             intent.putExtra("Add New Food Menu", "");
             startActivityForResult(intent, NEW_WORK);
+
 
         } else {
 //            emptyLabel.setVisibility(View.GONE);
