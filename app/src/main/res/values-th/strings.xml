@@ -36,4 +36,5 @@
     <string name="about">เกี่ยวกับแอพพลิเคชั่น</string>
     <string name="foodsearch">ค้นหารายการอาหาร</string>
     <string name="not_found">ไม่พบรายการอาหารที่ต้องการ</string>
+    <string name="welcome">ยินดีต้อนรับ</string>
 </resources>
