@@ -29,7 +29,6 @@ public class FoodSearch extends BaseActivity {
 
     private ListView listView;
     private Button bt_foodsearch;
-    //    private TextView emptyLabel;
     private EditText et_foodsearch;
 
     @Override
@@ -41,7 +40,6 @@ public class FoodSearch extends BaseActivity {
 
 
         listView = (ListView) findViewById(R.id.listView);
-//        emptyLabel = (TextView) findViewById(R.id.emptyLabel);
         et_foodsearch = (EditText) findViewById(R.id.et_foodsearch);
         bt_foodsearch = (Button) findViewById(R.id.bt_foodsearch);
 
@@ -57,11 +55,7 @@ public class FoodSearch extends BaseActivity {
 
     private void setView() {
         work = new ArrayList<Work>(Work.getbyfoodname(et_foodsearch.getText().toString()));
-        //Toast.makeText(FoodSearch.this, String.valueOf(work.size()), Toast.LENGTH_LONG).show();
         if (work.isEmpty()) {
-//            listView.setVisibility(View.GONE);
-//            et_foodsearch.setVisibility(View.GONE);
-//            emptyLabel.setVisibility(View.VISIBLE);
             Toast.makeText(this, "ไม่พบรายการอาหารที่ต้องการ", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(this, RecordcalActivity.class);
             intent.putExtra("Add New Food Menu", "");
@@ -69,7 +63,6 @@ public class FoodSearch extends BaseActivity {
 
 
         } else {
-//            emptyLabel.setVisibility(View.GONE);
             et_foodsearch.setVisibility(View.VISIBLE);
             listView.setVisibility(View.VISIBLE);
             listView.setAdapter(new foodAdapter(this, work));
@@ -84,7 +77,6 @@ public class FoodSearch extends BaseActivity {
                     finish();
                 }
             });
-//        }
         }
     }
 
@@ -108,12 +100,8 @@ public class FoodSearch extends BaseActivity {
                 holder = (ViewHolder) convertView.getTag();
             }
 
-
             Work task = getItem(position);
             holder.text1.setText(task.title);
-
-//        TextView tv = (TextView) convertView.findViewById(android.R.id.text1);
-//        tv.setText(task.title);
             return convertView;
         }
 

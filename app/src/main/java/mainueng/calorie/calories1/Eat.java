@@ -47,8 +47,7 @@ public class Eat extends Model {
     }
 
     public static Eat getFromDate(String date) {
-//        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-//        String currentDateandTime = sdf.format(new Date());
+
         return new Select().from(Eat.class).where("atdate = '" + date+ "'" ).orderBy("updatedAt DESC").executeSingle();
     }
 

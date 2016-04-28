@@ -82,7 +82,6 @@ public class FormActivity extends BaseActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        /* surpass all keys in activity; force the user to use form controls */
         return true;
     }
 

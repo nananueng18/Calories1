@@ -37,7 +37,6 @@ public class EatActivity extends BaseActivity {
 
     private Eat eat = null;
     private static final int MenuItem_SaveID = 1;
-    //private static final int MenuItem_DeleteID = 2;
 
     private TextView etAtdate;
 
@@ -66,7 +65,6 @@ public class EatActivity extends BaseActivity {
     private static final int DINNERID = 333;
 
     private Eat eating;
-    //private String AtDate = null;
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     private String today = sdf.format(new Date());
     @Override
@@ -199,60 +197,16 @@ public class EatActivity extends BaseActivity {
                 .append(month).append("/").append(year));
     }
 
-    /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        //addMenuItem(menu, MenuItem_SaveID, R.string.save, buildDrawable(MaterialDesignIconic.Icon.gmi_save));
-        addMenuItem(menu, MenuItem_DeleteID, R.string.delete, buildDrawable(MaterialDesignIconic.Icon.gmi_delete));
-        return true;
-    }*/
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-//                if (isEdited()) {
-//                    AlertDialog.Builder alert = new AlertDialog.Builder(this);
-//                    alert.setTitle(android.R.string.dialog_alert_title);
-//                    alert.setMessage(R.string.unsaved_exit_alert);
-//                    alert.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int which) {
                             onBackPressed();
-//                        }
-//                    });
-//                    alert.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialog, int which) {
-//                        }
-//                    });
-//                    alert.show();
-//                    return true;
-//                }
                 break;
 
             case MenuItem_SaveID:
                 save();
                 break;
-
-           /* case MenuItem_DeleteID:
-                android.support.v7.app.AlertDialog.Builder alert = new android.support.v7.app.AlertDialog.Builder(this);
-                alert.setTitle(android.R.string.dialog_alert_title);
-                alert.setMessage(R.string.are_you_sure);
-                alert.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        eat.delete();
-                        setResult(Activity.RESULT_OK, new Intent().putExtra("refreshNeeded", true));
-                        finish();
-                    }
-                });
-                alert.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-                alert.show();
-                break;*/
         }
 
         return super.onOptionsItemSelected(item);
@@ -260,22 +214,10 @@ public class EatActivity extends BaseActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        /* surpass all keys in activity; force the user to use form controls */
         return true;
     }
 
-//    private boolean isEdited() {
-//        if (eat == null)
-//            return titleEdit.getText().length() > 0 || contentEdit.getText().length() > 0;
-//        else
-//            return !work.title.equals(titleEdit.getText().toString()) || !work.content.equals(contentEdit.getText().toString());
-//    }
-
     private void save() {
-
-//        if (tvBreakfast.getText().length() > 0 && tvLunch.getText().length() > 0 && tvdinner.getText().length() > 0) {
-//            if (eating == null) // Insert Data
-//                eating = new Eat();
 
             eating.atdate = today; //etAtdate.getText().toString()
             eating.breakfastkilo = MornKilo;
@@ -284,20 +226,6 @@ public class EatActivity extends BaseActivity {
             eating.totalkilo = MornKilo + LunchKilo + DinnerKilo;
 
             eating.saveWithTimestamp();
-
-            //setResult(Activity.RESULT_OK, new Intent().putExtra("id", eat.getId()));
-            //this.finish();
-//        } else {
-//            AlertDialog.Builder alert = new AlertDialog.Builder(this);
-//            alert.setTitle(android.R.string.dialog_alert_title);
-//            alert.setMessage("โปรดเลือกอาหารเช้า อาหารกลางวันและอาหารเย็น");
-//            alert.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-//                @Override
-//                public void onClick(DialogInterface dialog, int which) {
-//                }
-//            });
-//            alert.show();
-//        }
     }
 
     @Override
@@ -351,7 +279,6 @@ public class EatActivity extends BaseActivity {
                     }
             }
         } else if (resultCode == Activity.RESULT_CANCELED) {
-
         }
     }
 
@@ -371,7 +298,6 @@ public class EatActivity extends BaseActivity {
                 holder = new ViewHolder();
                 holder.text1 = (TextView) convertView.findViewById(R.id.tvFood);
                 holder.text2 = (TextView) convertView.findViewById(R.id.tvKilo);
-               // holder.text3 = (TextView) convertView.findViewById(R.id.Calorie);
                 holder.btRemove = (Button)convertView.findViewById(R.id.btRemove);
 
                 convertView.setTag(holder);
@@ -388,24 +314,15 @@ public class EatActivity extends BaseActivity {
                     food.delete();
                     CalKilo();
                     save();
-                    //Toast.makeText(context, "show", Toast.LENGTH_LONG).show();
                 }
             });
-
-
-//        TextView tv = (TextView) convertView.findViewById(R.id.tvFood);
-//        tv.setTextColor(Color.BLACK);
-//        tv.setText(food.food);
-//        TextView t = (TextView) convertView.findViewById(R.id.tvKilo);
-//        t.setTextColor(Color.BLACK);
-//        t.setText(String.valueOf(food.kilocal));
             return convertView;
         }
 
         class ViewHolder {
             TextView text1;
             TextView text2;
-            //TextView text3;
+
             Button btRemove;
         }
     }

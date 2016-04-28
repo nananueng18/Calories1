@@ -71,7 +71,6 @@ public class HistoryFoodActivity extends BaseActivity {
         } else {
             emptyLabel.setVisibility(View.GONE);
             listView.setVisibility(View.VISIBLE);
-            //listView.setAdapter(new WorkAdapter(this, work));
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

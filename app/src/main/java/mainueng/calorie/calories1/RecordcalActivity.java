@@ -40,7 +40,6 @@ public class RecordcalActivity extends BaseActivity {
             if (work != null) {
                 titleEdit.setText(work.title);
                 contentEdit.setText(work.content);
-                //dateEdit.setText(work.date);
             } else {
                 finish();
             }
@@ -86,7 +85,6 @@ public class RecordcalActivity extends BaseActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        /* surpass all keys in activity; force the user to use form controls */
         return true;
     }
 
@@ -103,7 +101,6 @@ public class RecordcalActivity extends BaseActivity {
                 work = new Work();
             work.title = titleEdit.getText().toString();
             work.content = contentEdit.getText().toString();
-           // work.date = dateEdit.getText().toString();
             work.saveWithTimestamp();
             setResult(Activity.RESULT_OK, new Intent().putExtra("id", work.getId()));
             this.finish();

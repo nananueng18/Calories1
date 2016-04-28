@@ -29,23 +29,14 @@ import static mainueng.calorie.calories1.R.id.Calorie;
 
 public class ListActivity extends BaseActivity {
 
-    //private static final int NEW_WORK = 1;
-    //private static final int SHOW_WORK = 2;
+
     private static final int NEW_Eat = 1;
     private static final int SHOW_Eat = 2;
     private ArrayList<Eat> eat;
 
-    // private ArrayList<Work> work;
-
 
     private ListView listView;
     private TextView emptyLabel;
-
-    // public String getBackupFolderName() {
-    // Date date = Calendar.getInstance().getTime();
-    // SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd.hhmmss");
-    // return sdf.format(date);
-    // }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,9 +90,6 @@ public class ListActivity extends BaseActivity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                   // Intent intent = new Intent(ListActivity.this, EatActivity.class);
-                  //  intent.putExtra("id", eat.get(position).getId());
-                    //startActivityForResult(intent, SHOW_Eat);
                 }
             });
         }
@@ -134,12 +122,6 @@ class WorkAdapter extends ArrayAdapter<Eat> {
         Eat Eat = getItem(position);
         holder.text1.setText(Eat.atdate);
         holder.text2.setText(Eat.totalkilo.toString());
-       // holder.text3.setText(R.string.Calorie);
-
-//        TextView tv = (TextView) convertView.findViewById(android.R.id.text1);
-//        tv.setText(Eat.atdate);
-//        TextView t = (TextView) convertView.findViewById(android.R.id.text2);
-//        t.setText(Eat.totalkilo.toString());
 
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.activity_item, parent, false);
@@ -148,15 +130,9 @@ class WorkAdapter extends ArrayAdapter<Eat> {
             holder.text3 = (TextView) convertView.findViewById(R.id.Calorie);
             convertView.setTag(holder);
         } else {
-            //holder = (ViewHolder) convertView.getTag();
+
         }
 
-//        TextView tv = (TextView) convertView.findViewById(R.id.tvFood);
-//        tv.setTextColor(Color.BLACK);
-//        tv.setText(food.food);
-//        TextView t = (TextView) convertView.findViewById(R.id.tvKilo);
-//        t.setTextColor(Color.BLACK);
-//        t.setText(String.valueOf(food.kilocal));
         return convertView;
     }
 
@@ -164,7 +140,6 @@ class WorkAdapter extends ArrayAdapter<Eat> {
         TextView text1;
         TextView text2;
         TextView text3;
-        //Button btRemove;
     }
 
 }
