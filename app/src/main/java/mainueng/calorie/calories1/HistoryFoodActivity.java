@@ -74,7 +74,7 @@ public class HistoryFoodActivity extends BaseActivity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Intent intent = new Intent(HistoryFoodActivity.this, ShowActivity.class);
+                    Intent intent = new Intent(HistoryFoodActivity.this, EatActivity.class);
                     intent.putExtra("id", work.get(position).getId());
                     startActivityForResult(intent, SHOW_WORK);
                 }

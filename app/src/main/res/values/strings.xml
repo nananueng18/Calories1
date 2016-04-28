@@ -27,7 +27,7 @@
     <string name="eat_lunch">Lunch</string>
     <string name="new_eat">New Food</string>
     <string name="about_app">"Calorie app"</string>
-    <string name="about_app2">เป็นแอพพลิเคชั่นที่ใช้สำหรับการวางแผนการรับประทานอาหารในแต่ละมื้อของแต่ละวัน</string>
+    <string name="about_app2">Diet plan to calculate the calories you should eat each day.</string>
     <string name="kcal">Kilo calorie</string>
     <string name="app_name">Calorie Application</string>
     <string name="home">HOME</string>

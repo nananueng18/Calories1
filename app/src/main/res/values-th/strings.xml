@@ -37,4 +37,5 @@
     <string name="foodsearch">ค้นหารายการอาหาร</string>
     <string name="not_found">ไม่พบรายการอาหารที่ต้องการ</string>
     <string name="welcome">ยินดีต้อนรับ</string>
+    <string name="about_app2">เป็นแอพพลิเคชั่นที่ใช้สำหรับการวางแผนการรับประทานอาหารในแต่ละมื้อของแต่ละวัน</string>
 </resources>

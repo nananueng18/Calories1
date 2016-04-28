@@ -19,7 +19,6 @@
 
         </activity><activity android:name=".ListActivity"/>
         <activity android:name=".RecordcalActivity" />
-        <activity android:name=".ShowActivity" />
         <activity android:name=".EatActivity"/>
         <activity android:name=".MainActivity">
 
